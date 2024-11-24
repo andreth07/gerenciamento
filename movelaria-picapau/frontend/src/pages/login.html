@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movelaria Pica Pau - Login</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <!-- Fonte Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="logo-container">
+                <h1>Movelaria Pica Pau</h1>
+                <p class="subtitle">Qualidade em cada detalhe</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="email" id="email" required autocomplete="off">
+                    <label for="email">Email</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="password" required>
+                    <label for="password">Senha</label>
+                </div>
+
+                <div class="input-group">
+                    <select id="userType" required>
+                        <option value="">Selecione o tipo de usuário</option>
+                        <option value="admin">Administrador</option>
+                        <option value="leader">Líder de Equipe</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Entrar</span>
+                </button>
+
+                <div class="form-footer">
+                    <p class="register-link">
+                        Não tem uma conta? <a href="register.html">Registre-se</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="../scripts/auth.js"></script>
+    <script src="../scripts/animations.js"></script>
+</body>
+</html>

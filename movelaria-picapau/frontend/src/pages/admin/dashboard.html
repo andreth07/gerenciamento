@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Movelaria Pica Pau</title>
+    <link rel="stylesheet" href="../../styles/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Movelaria Pica Pau</h2>
+                <p>Painel Administrativo</p>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-tab="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li data-tab="funcionarios">
+                    <i class="fas fa-users"></i>
+                    <span>Funcionários</span>
+                </li>
+                <li data-tab="curriculos">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Currículos</span>
+                </li>
+                <li data-tab="bonificacoes">
+                    <i class="fas fa-award"></i>
+                    <span>Bonificações</span>
+                </li>
+                <li id="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-content">
+                    <h1>Bem-vindo ao Painel Administrativo</h1>
+                    <div class="user-info">
+                        <span id="userName">Admin</span>
+                        <img src="../../img/user-avatar.png" alt="User Avatar" class="avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Conteúdo das Abas -->
+            <div class="content-area">
+                <!-- Dashboard -->
+                <section id="dashboard" class="tab-content active">
+                    <div class="dashboard-cards">
+                        <div class="card">
+                            <i class="fas fa-users"></i>
+                            <h3>Total de Funcionários</h3>
+                            <p id="totalFuncionarios">0</p>
+                        </div>
+                        <div class="card">
+                            <i class="fas fa-file-alt"></i>
+                            <h3>Currículos Recebidos</h3>
+                            <p id="totalCurriculos">0</p>
+                        </div>
+                        <div class="card">
+                            <i class="fas fa-award"></i>
+                            <h3>Bonificações do Mês</h3>
+                            <p id="totalBonificacoes">0</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Funcionários -->
+                <section id="funcionarios" class="tab-content">
+                    <div class="section-header">
+                        <h2>Gerenciamento de Funcionários</h2>
+                        <button class="add-btn" id="addFuncionarioBtn">
+                            <i class="fas fa-plus"></i> Novo Funcionário
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table id="funcionariosTable">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Cargo</th>
+                                    <th>Equipe</th>
+                                    <th>Data de Admissão</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Preenchido via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Currículos -->
+                <section id="curriculos" class="tab-content">
+                    <div class="section-header">
+                        <h2>Banco de Currículos</h2>
+                        <button class="add-btn" id="addCurriculoBtn">
+                            <i class="fas fa-plus"></i> Novo Currículo
+                        </button>
+                    </div>
+                    <div class="table-container">
+                        <table id="curriculosTable">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Cargo Pretendido</th>
+                                    <th>Data de Envio</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Preenchido via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Bonificações -->
+                <section id="bonificacoes" class="tab-content">
+                    <div class="section-header">
+                        <h2>Controle de Bonificações</h2>
+                    </div>
+                    <div class="bonificacoes-container">
+                        <div class="equipes-list">
+                            <!-- Lista de equipes e seus funcionários com bonificações -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Novo Funcionário -->
+    <div id="funcionarioModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Cadastro de Funcionário</h2>
+            <form id="funcionarioForm">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="cargo">Cargo</label>
+                    <select id="cargo" required>
+                        <option value="">Selecione o cargo</option>
+                        <option value="lider">Líder de Equipe</option>
+                        <option value="funcionario">Funcionário</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="equipe">Equipe</label>
+                    <select id="equipe" required>
+                        <option value="">Selecione a equipe</option>
+                        <option value="equipe1">Equipe 1</option>
+                        <option value="equipe2">Equipe 2</option>
+                        <option value="equipe3">Equipe 3</option>
+                        <option value="equipe4">Equipe 4</option>
+                        <option value="equipe5">Equipe 5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dataAdmissao">Data de Admissão</label>
+                    <input type="date" id="dataAdmissao" required>
+                </div>
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Novo Currículo -->
+    <div id="curriculoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Cadastro de Currículo</h2>
+            <form id="curriculoForm">
+                <div class="form-group">
+                    <label for="nomeCandidato">Nome Completo</label>
+                    <input type="text" id="nomeCandidato" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailCandidato">Email</label>
+                    <input type="email" id="emailCandidato" required>
+                </div>
+                <div class="form-group">
+                    <label for="cargoPretendido">Cargo Pretendido</label>
+                    <input type="text" id="cargoPretendido" required>
+                </div>
+                <div class="form-group">
+                    <label for="curriculo">Currículo (PDF)</label>
+                    <input type="file" id="curriculo" accept=".pdf" required>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../../scripts/admin/dashboard.js"></script>
+
+    <script src="../../scripts/admin/funcionarios.js"></script>
+    <script src="../../scripts/admin/curriculos.js"></script>
+    <script src="../../scripts/admin/bonificacoes.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Líder - Movelaria Pica Pau</title>
+    <link rel="stylesheet" href="../../styles/leader.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="leader-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Movelaria Pica Pau</h2>
+                <p>Painel do Líder</p>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-tab="equipe">
+                    <i class="fas fa-users"></i>
+                    <span>Minha Equipe</span>
+                </li>
+                <li data-tab="avaliacoes">
+                    <i class="fas fa-star"></i>
+                    <span>Avaliações</span>
+                </li>
+                <li data-tab="historico">
+                    <i class="fas fa-history"></i>
+                    <span>Histórico</span>
+                </li>
+                <li id="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-content">
+                    <h1>Bem-vindo, <span id="leaderName">Líder</span></h1>
+                    <div class="team-info">
+                        <span id="teamName">Equipe</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Conteúdo das Abas -->
+            <div class="content-area">
+                <!-- Minha Equipe -->
+                <section id="equipe" class="tab-content active">
+                    <div class="team-members">
+                        <h2>Membros da Equipe</h2>
+                        <div class="members-grid" id="membersGrid">
+                            <!-- Preenchido via JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Avaliações -->
+                <section id="avaliacoes" class="tab-content">
+                    <div class="evaluation-form">
+                        <h2>Nova Avaliação</h2>
+                        <form id="avaliacaoForm">
+                            <div class="form-group">
+                                <label for="funcionario">Funcionário</label>
+                                <select id="funcionario" required>
+                                    <!-- Preenchido via JavaScript -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="mes">Mês de Referência</label>
+                                <select id="mes" required>
+                                    <option value="">Selecione o mês</option>
+                                    <option value="1">Janeiro</option>
+                                    <option value="2">Fevereiro</option>
+                                    <option value="3">Março</option>
+                                    <option value="4">Abril</option>
+                                    <option value="5">Maio</option>
+                                    <option value="6">Junho</option>
+                                    <option value="7">Julho</option>
+                                    <option value="8">Agosto</option>
+                                    <option value="9">Setembro</option>
+                                    <option value="10">Outubro</option>
+                                    <option value="11">Novembro</option>
+                                    <option value="12">Dezembro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="pontuacao">Pontuação (0-10)</label>
+                                <input type="number" id="pontuacao" min="0" max="10" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="observacoes">Observações</label>
+                                <textarea id="observacoes" rows="4"></textarea>
+                            </div>
+                            <button type="submit">Enviar Avaliação</button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Histórico -->
+                <section id="historico" class="tab-content">
+                    <div class="history-container">
+                        <h2>Histórico de Avaliações</h2>
+                        <div class="filter-section">
+                            <select id="filterMes">
+                                <option value="">Todos os meses</option>
+                                <!-- Opções de meses -->
+                            </select>
+                            <select id="filterFuncionario">
+                                <option value="">Todos os funcionários</option>
+                                <!-- Preenchido via JavaScript -->
+                            </select>
+                        </div>
+                        <div class="history-table-container">
+                            <table id="historicoTable">
+                                <thead>
+                                    <tr>
+                                        <th>Funcionário</th>
+                                        <th>Mês</th>
+                                        <th>Pontuação</th>
+                                        <th>Observações</th>
+                                        <th>Data da Avaliação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Preenchido via JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="../../scripts/leader/dashboard.js"></script>
+    <script src="../../scripts/leader/team.js"></script>
+    <script src="../../scripts/leader/evaluations.js"></script>
+</body>
+</html>
